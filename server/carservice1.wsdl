@@ -1,0 +1,128 @@
+<?xml version ='1.0' encoding ='UTF-8' ?> 
+<definitions name='Cars' 
+    targetNamespace='http://192.168.0.15/~user15/soap/shop_soap/server/' 
+    xmlns:tns='http://192.168.0.15/~user15/soap/shop_soap/server/' 
+ xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' 
+ xmlns:xsd='http://www.w3.org/2001/XMLSchema' 
+ xmlns:soapenc='http://schemas.xmlsoap.org/soap/encoding/' 
+ xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' 
+ xmlns='http://schemas.xmlsoap.org/wsdl/'> 
+
+<message name='fullInfoCarRequest'> 
+ <part name='id' type='xsd:string'/> 
+</message> 
+<message name='fullInfoCarResponse'> 
+ <part name='Result' type='xsd:string'/> 
+</message> 
+<message name='getInfoDropDownListRequest'> 
+</message> 
+<message name='getInfoDropDownListResponse'> 
+ <part name='Result' type='xsd:string'/> 
+</message> 
+<message name='listCarsRequest'> 
+</message> 
+<message name='listCarsResponse'> 
+ <part name='Result' type='xsd:string'/> 
+</message> 
+<message name='orderRequest'> 
+ <part name='params' type='xsd:string'/> 
+</message> 
+<message name='orderResponse'> 
+ <part name='Result' type='xsd:string'/> 
+</message> 
+<message name='filterRequest'> 
+ <part name='params' type='xsd:string'/> 
+</message> 
+<message name='filterResponse'> 
+ <part name='Result' type='xsd:string'/> 
+</message> 
+
+<portType name='CarPortType'> 
+ <operation name='fullInfoCar'> 
+  <input message='tns:fullInfoCarRequest'/> 
+  <output message='tns:fullInfoCarResponse'/> 
+ </operation> 
+ <operation name='getInfoDropDownList'> 
+  <input message='tns:getInfoDropDownListRequest'/> 
+  <output message='tns:getInfoDropDownListResponse'/> 
+ </operation> 
+  <operation name='listCars'> 
+  <input message='tns:listCarsRequest'/> 
+  <output message='tns:listCarsResponse'/> 
+ </operation> 
+  <operation name='order'> 
+  <input message='tns:orderRequest'/> 
+  <output message='tns:orderResponse'/> 
+ </operation> 
+  <operation name='filter'> 
+  <input message='tns:filterRequest'/> 
+  <output message='tns:filterResponse'/> 
+ </operation> 
+</portType>
+
+<binding name='CarBinding' type='tns:CarPortType'> 
+ <soap:binding style='rpc' 
+  transport='http://schemas.xmlsoap.org/soap/http'/> 
+ <operation name='fullInfoCar'> 
+  <soap:operation soapAction='urn:xmethods-delayed-quotes#fullInfoCar'/> 
+  <input> 
+   <soap:body use='encoded' namespace='urn:xmethods-delayed-quotes' 
+    encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+  </input> 
+  <output> 
+   <soap:body use='encoded' namespace='urn:xmethods-delayed-quotes' 
+    encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+  </output> 
+ </operation> 
+ <operation name='getInfoDropDownList'> 
+  <soap:operation soapAction='urn:xmethods-delayed-quotes#getInfoDropDownList'/> 
+  <input> 
+   <soap:body use='encoded' namespace='urn:xmethods-delayed-quotes' 
+    encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+  </input> 
+  <output> 
+   <soap:body use='encoded' namespace='urn:xmethods-delayed-quotes' 
+    encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+  </output> 
+ </operation> 
+  <operation name='listCars'> 
+  <soap:operation soapAction='urn:xmethods-delayed-quotes#listCars'/> 
+  <input> 
+   <soap:body use='encoded' namespace='urn:xmethods-delayed-quotes' 
+    encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+  </input> 
+  <output> 
+   <soap:body use='encoded' namespace='urn:xmethods-delayed-quotes' 
+    encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+  </output> 
+ </operation> 
+ <operation name='order'> 
+  <soap:operation soapAction='urn:xmethods-delayed-quotes#order'/> 
+  <input> 
+   <soap:body use='encoded' namespace='urn:xmethods-delayed-quotes' 
+    encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+  </input> 
+  <output> 
+   <soap:body use='encoded' namespace='urn:xmethods-delayed-quotes' 
+    encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+  </output> 
+ </operation> 
+ <operation name='filter'> 
+  <soap:operation soapAction='urn:xmethods-delayed-quotes#filter'/> 
+  <input> 
+   <soap:body use='encoded' namespace='urn:xmethods-delayed-quotes' 
+    encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+  </input> 
+  <output> 
+   <soap:body use='encoded' namespace='urn:xmethods-delayed-quotes' 
+    encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+  </output> 
+ </operation> 
+</binding> 
+
+<service name='CarService'> 
+ <port name='CarPort' binding='CarBinding'> 
+     <soap:address location='http://192.168.0.15/~user15/soap/shop_soap/server/index.php'/> 
+ </port> 
+</service> 
+</definitions>
